@@ -2,6 +2,7 @@ import { DataTypes } from 'sequelize';
 import sequelize from '../../config/database.js';
 import User from './User.js';
 import Category from './Category.js';
+import { Decimal } from 'decimal.js';
 
 const Transaction = sequelize.define('Transaction', {
   id: {
@@ -66,7 +67,7 @@ const Transaction = sequelize.define('Transaction', {
 });
 
 Transaction.belongsTo(User, { foreignKey: 'userId', onDelete: 'CASCADE' });
-Transaction.belongsTo(Category, { foreignKey: 'categoryId', onDelete: 'SET NULL' });
+Transaction.belongsTo(Category, { as: 'Category', foreignKey: 'categoryId', onDelete: 'SET NULL' });
 User.hasMany(Transaction, { foreignKey: 'userId' });
 Category.hasMany(Transaction, { foreignKey: 'categoryId' });
 

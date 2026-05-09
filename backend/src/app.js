@@ -9,6 +9,10 @@ import passport from './config/passport.js';
 import authRoutes from './modules/auth/auth.routes.js';
 import usersRoutes from './modules/users/users.routes.js';
 import categoriesRoutes from './modules/categories/categories.routes.js';
+import transactionsRoutes from './modules/transactions/transactions.routes.js';
+import budgetsRoutes from './modules/budgets/budgets.routes.js';
+import reportsRoutes from './modules/reports/reports.routes.js';
+import notificationsRoutes from './modules/notifications/notifications.routes.js';
 
 const app = express();
 
@@ -34,6 +38,10 @@ app.get('/health', (req, res) => {
 app.use('/auth', authRoutes);
 app.use('/users', usersRoutes);
 app.use('/categories', categoriesRoutes);
+app.use('/transactions', transactionsRoutes);
+app.use('/budgets', budgetsRoutes);
+app.use('/reports', reportsRoutes);
+app.use('/notifications', notificationsRoutes);
 
 // 404 handler
 app.use((req, res) => {
