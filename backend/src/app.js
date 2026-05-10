@@ -13,6 +13,9 @@ import transactionsRoutes from './modules/transactions/transactions.routes.js';
 import budgetsRoutes from './modules/budgets/budgets.routes.js';
 import reportsRoutes from './modules/reports/reports.routes.js';
 import notificationsRoutes from './modules/notifications/notifications.routes.js';
+import currencyRoutes from './modules/currency/currency.routes.js';
+import aiRoutes from './modules/ai/ai.routes.js';
+import importsRoutes from './modules/imports/imports.routes.js';
 
 const app = express();
 
@@ -42,6 +45,9 @@ app.use('/transactions', transactionsRoutes);
 app.use('/budgets', budgetsRoutes);
 app.use('/reports', reportsRoutes);
 app.use('/notifications', notificationsRoutes);
+app.use('/currency', currencyRoutes);
+app.use('/ai', aiRoutes);
+app.use('/imports', importsRoutes);
 
 // 404 handler
 app.use((req, res) => {

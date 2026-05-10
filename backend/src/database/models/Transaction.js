@@ -62,6 +62,10 @@ const Transaction = sequelize.define('Transaction', {
     type: DataTypes.STRING,
     allowNull: true,
   },
+  importRowId: {
+    type: DataTypes.UUID,
+    allowNull: true,
+  },
 }, {
   tableName: 'transactions',
 });
