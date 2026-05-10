@@ -1,6 +1,66 @@
 import { Op } from 'sequelize';
 import Decimal from 'decimal.js';
 import { Transaction, Category } from '../../database/models/index.js';
+import { createNotification } from '../notifications/notifications.service.js';
+import { Budget } from '../../database/models/index.js';
+
+
+const checkBudgetOverrun = async (userId, transaction) => {
+  if (!transaction.categoryId || transaction.type !== 'expense') return;
+
+  const now = new Date();
+  const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).toISOString().split('T')[0];
+  const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).toISOString().split('T')[0];
+
+  const budget = await Budget.findOne({
+    where: {
+      userId,
+      categoryId: transaction.categoryId,
+      periodStart: { [Op.lte]: endOfMonth },
+      periodEnd: { [Op.gte]: startOfMonth },
+    },
+  });
+
+  if (!budget) return;
+
+  const allTransactions = await Transaction.findAll({
+    where: {
+      userId,
+      categoryId: transaction.categoryId,
+      type: { [Op.in]: ['expense', 'transfer'] },
+      date: { [Op.gte]: startOfMonth, [Op.lte]: endOfMonth },
+    },
+  });
+
+  const totalSpent = allTransactions.reduce((sum, t) => sum + parseFloat(t.amount), 0);
+  const budgetAmount = parseFloat(budget.amount);
+  const percentage = Math.round((totalSpent / budgetAmount) * 100);
+
+  const alreadyNotified80 = budget.notifiedAtThreshold >= 80;
+  const alreadyNotified100 = budget.notifiedAtThreshold >= 100;
+
+  if (percentage >= 100 && !alreadyNotified100) {
+    await createNotification({
+      userId,
+      type: 'budget_overrun',
+      title: 'Budget Exceeded',
+      body: `You have exceeded your budget for this category. Spent ${totalSpent.toFixed(2)} of ${budgetAmount.toFixed(2)}.`,
+      referenceId: budget.id,
+      referenceType: 'budget',
+    });
+    await budget.update({ notifiedAtThreshold: 100 });
+  } else if (percentage >= 80 && !alreadyNotified80) {
+    await createNotification({
+      userId,
+      type: 'budget_overrun',
+      title: 'Budget Warning',
+      body: `You have used ${percentage}% of your budget for this category.`,
+      referenceId: budget.id,
+      referenceType: 'budget',
+    });
+    await budget.update({ notifiedAtThreshold: 80 });
+  }
+};
 
 const applyFilters = (query) => {
   const where = {};
@@ -76,6 +136,8 @@ export const createTransaction = async (userId, data) => {
   });
 
   return getTransactionById(userId, transaction.id);
+
+  await checkBudgetOverrun(userId, transaction);
 };
 
 export const updateTransaction = async (userId, transactionId, data) => {

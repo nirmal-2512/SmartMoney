@@ -1,5 +1,25 @@
 import * as transactionsService from './transactions.service.js';
 
+import { uploadReceipt } from '../../common/utils/uploadReceipt.js';
+
+export const uploadTransactionReceipt = async (req, res, next) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({
+        error: { code: 'NO_FILE', message: 'No receipt image uploaded' },
+      });
+    }
+
+    const transaction = await transactionsService.getTransactionById(req.user.id, req.params.id);
+    const receiptUrl = await uploadReceipt(req.file.buffer, req.file.originalname);
+    const updated = await transactionsService.updateTransaction(req.user.id, req.params.id, { receiptUrl });
+
+    res.status(200).json({ receiptUrl, transaction: updated });
+  } catch (err) {
+    next(err);
+  }
+};
+
 export const getAllTransactions = async (req, res, next) => {
   try {
     const result = await transactionsService.getAllTransactions(req.user.id, req.query);

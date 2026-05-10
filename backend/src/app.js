@@ -16,6 +16,7 @@ import notificationsRoutes from './modules/notifications/notifications.routes.js
 import currencyRoutes from './modules/currency/currency.routes.js';
 import aiRoutes from './modules/ai/ai.routes.js';
 import importsRoutes from './modules/imports/imports.routes.js';
+import anomaliesRoutes from './modules/anomalies/anomalies.routes.js';
 
 const app = express();
 
@@ -48,6 +49,7 @@ app.use('/notifications', notificationsRoutes);
 app.use('/currency', currencyRoutes);
 app.use('/ai', aiRoutes);
 app.use('/imports', importsRoutes);
+app.use('/anomalies', anomaliesRoutes);
 
 // 404 handler
 app.use((req, res) => {

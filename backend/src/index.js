@@ -2,6 +2,22 @@ import 'dotenv/config';
 import app from './app.js';
 import sequelize from './config/database.js';
 import './database/models/index.js'; // registers all models
+import cron from 'node-cron';
+import { User } from './database/models/index.js';
+import { recomputeBaselines } from './modules/anomalies/anomalies.service.js';
+
+
+
+// Nightly baseline recompute at midnight
+cron.schedule('0 0 * * *', async () => {
+  console.log('Running nightly baseline recompute...');
+  const users = await User.findAll({ attributes: ['id'] });
+  for (const user of users) {
+    await recomputeBaselines(user.id);
+  }
+  console.log('Baseline recompute complete.');
+});
+
 
 const PORT = process.env.PORT || 3000;
 
