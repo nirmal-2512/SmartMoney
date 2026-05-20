@@ -17,6 +17,11 @@ import currencyRoutes from './modules/currency/currency.routes.js';
 import aiRoutes from './modules/ai/ai.routes.js';
 import importsRoutes from './modules/imports/imports.routes.js';
 import anomaliesRoutes from './modules/anomalies/anomalies.routes.js';
+import loanRoutes from './modules/loans/loans.routes.js';
+import otpRoutes from './modules/otp/otp.routes.js';
+
+
+
 
 const app = express();
 
@@ -50,6 +55,8 @@ app.use('/currency', currencyRoutes);
 app.use('/ai', aiRoutes);
 app.use('/imports', importsRoutes);
 app.use('/anomalies', anomaliesRoutes);
+app.use('/loans', loanRoutes);
+app.use('/auth', otpRoutes);
 
 // 404 handler
 app.use((req, res) => {

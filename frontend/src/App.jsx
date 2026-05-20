@@ -13,6 +13,10 @@ import AiChatPage from "@/pages/AiChatPage";
 import AiReportPage from "@/pages/AiReportPage";
 import AnomaliesPage from "@/pages/AnomaliesPage";
 import ProfilePage from "@/pages/ProfilePage";
+import OtpVerificationPage from "./pages/OtpVerificationPage.jsx";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage.jsx";
+import ResetPasswordPage from "./pages/ResetPasswordPage.jsx";
+import LoansPage from "./pages/LoansPage.jsx";
 
 export default function App() {
   return (
@@ -35,6 +39,13 @@ export default function App() {
                 <Route path="/ai/report" element={<AiReportPage />} />
                 <Route path="/anomalies" element={<AnomaliesPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/verify-otp" element={<OtpVerificationPage />} />
+                <Route path="/loans" element={<LoansPage />} />
+                <Route
+                  path="/forgot-password"
+                  element={<ForgotPasswordPage />}
+                />
+                <Route path="/reset-password" element={<ResetPasswordPage />} />
               </Routes>
             </Layout>
           </ProtectedRoute>

@@ -38,12 +38,16 @@ export default function RegisterPage() {
       });
       setAuth(res.data.user, res.data.accessToken, res.data.refreshToken);
 
-      // Seed default categories for new user
       try {
         await api.post("/categories/seed");
       } catch {}
 
-      navigate("/");
+      navigate("/verify-otp", {
+        state: {
+          userId: res.data.user.id,
+          email: data.email,
+        },
+      });
     } catch (err) {
       setError(err.response?.data?.error?.message || "Registration failed");
     } finally {

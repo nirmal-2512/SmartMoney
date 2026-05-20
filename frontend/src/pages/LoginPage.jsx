@@ -156,6 +156,14 @@ export default function LoginPage() {
                 Sign up
               </Link>
             </p>
+            <div className="text-center text-sm">
+              <Link
+                to="/forgot-password"
+                className="text-muted-foreground hover:text-primary underline underline-offset-4"
+              >
+                Forgot password?
+              </Link>
+            </div>
           </CardContent>
         </Card>
       </div>

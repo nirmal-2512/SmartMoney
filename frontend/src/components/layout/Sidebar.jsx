@@ -15,6 +15,8 @@ import {
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
+// Add this import at the top:
+import { HandCoins } from "lucide-react";
 
 const navItems = [
   { label: "Dashboard", href: "/", icon: LayoutDashboard },
@@ -27,6 +29,7 @@ const navItems = [
   { label: "AI Report", href: "/ai/report", icon: FileText },
   { label: "Anomalies", href: "/anomalies", icon: AlertTriangle },
   { label: "Profile", href: "/profile", icon: User },
+  { label: "Loans", href: "/loans", icon: HandCoins },
 ];
 
 export default function Sidebar({ open, onClose }) {

@@ -12,6 +12,8 @@ import MerchantCategoryMapping from './MerchantCategoryMapping.js';
 import CategoryBaseline from './CategoryBaseline.js';
 import Anomaly from './Anomaly.js';
 import AiReport from './AiReport.js';
+import Otp from './Otp.js';
+import Loan from './Loan.js';
 
 export {
   sequelize,
@@ -28,4 +30,6 @@ export {
   CategoryBaseline,
   Anomaly,
   AiReport,
+  Otp,
+  Loan,
 };
