@@ -7,6 +7,8 @@ import {
   verifyRefreshToken,
 } from '../../common/utils/jwt.js';
 
+import { sendOtp } from '../otp/otp.service.js';
+
 const formatUser = (user) => ({
   id: user.id,
   email: user.email,
@@ -24,26 +26,16 @@ const saveRefreshToken = async (userId, refreshToken) => {
   await RefreshToken.create({ userId, tokenHash, expiresAt });
 };
 
+// At the bottom of the register function, before the return:
 export const register = async ({ fullName, email, password }) => {
-  const existing = await User.findOne({ where: { email } });
-  if (existing) {
-    const err = new Error('Email already in use');
-    err.status = 409;
-    err.code = 'EMAIL_IN_USE';
-    throw err;
-  }
-
-  const passwordHash = await bcrypt.hash(password, 12);
-  const user = await User.create({
-    fullName,
-    email,
-    passwordHash,
-    authProvider: 'local',
-  });
+  // ... existing code ...
 
   const accessToken = generateAccessToken(user);
   const refreshToken = generateRefreshToken(user);
   await saveRefreshToken(user.id, refreshToken);
+
+  // Add this — send OTP automatically on register
+  await sendOtp(user.id, email, 'email_verification');
 
   return { accessToken, refreshToken, user: formatUser(user) };
 };
@@ -149,3 +141,4 @@ export const googleCallback = async ({ googleId, email, fullName, avatarUrl }) =
 
   return { accessToken, refreshToken, user: formatUser(user) };
 };
+
