@@ -23,18 +23,12 @@ export default function ForgotPasswordPage() {
     mutationFn: (data) => api.post("/auth/forgot-password", data),
     onSuccess: (res) => {
       const userId = res.data.userId;
+      toast({
+        title: "OTP sent",
+        description: `Check ${email} for your reset code.`,
+      });
       if (userId) {
-        toast({
-          title: "OTP sent",
-          description: `Check ${email} for your reset code.`,
-        });
         navigate("/reset-password", { state: { userId, email } });
-      } else {
-        // Email not found — still show a friendly message
-        toast({
-          title: "OTP sent",
-          description: `If that email exists, a code has been sent.`,
-        });
       }
     },
     onError: () => {
@@ -53,7 +47,7 @@ export default function ForgotPasswordPage() {
         <CardHeader className="text-center">
           <CardTitle className="text-2xl">Forgot password</CardTitle>
           <CardDescription>
-            Enter your email address and we will send you a reset code.
+            Enter your email and we will send you a reset code.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -70,7 +64,6 @@ export default function ForgotPasswordPage() {
                 autoFocus
               />
             </div>
-
             <Button
               type="submit"
               className="w-full"
@@ -78,14 +71,12 @@ export default function ForgotPasswordPage() {
             >
               {mutation.isPending ? "Sending..." : "Send reset code"}
             </Button>
-
             <p className="text-center text-sm text-muted-foreground">
-              Remember your password?{" "}
               <Link
                 to="/login"
-                className="text-primary underline underline-offset-4 hover:no-underline"
+                className="text-primary underline underline-offset-4"
               >
-                Sign in
+                Back to sign in
               </Link>
             </p>
           </form>
