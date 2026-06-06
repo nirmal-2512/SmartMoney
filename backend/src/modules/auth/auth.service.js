@@ -28,16 +28,20 @@ const saveRefreshToken = async (userId, refreshToken) => {
 
 // At the bottom of the register function, before the return:
 export const register = async ({ fullName, email, password }) => {
-  // ... existing code ...
+  const existing = await User.findOne({ where: { email } });
+  if (existing) {
+    const err = new Error('Email already in use');
+    err.status = 409;
+    err.code = 'EMAIL_IN_USE';
+    throw err;
+  }
 
-  const accessToken = generateAccessToken(user);
-  const refreshToken = generateRefreshToken(user);
-  await saveRefreshToken(user.id, refreshToken);
+  const passwordHash = await bcrypt.hash(password, 12);
 
-  // Add this — send OTP automatically on register
-  await sendOtp(user.id, email, 'email_verification');
+  // Store registration data in OTP record — do NOT create user yet
+  await sendOtp(null, email, 'email_verification', { fullName, email, passwordHash });
 
-  return { accessToken, refreshToken, user: formatUser(user) };
+  return { message: 'OTP sent to ' + email };
 };
 
 export const login = async ({ email, password }) => {

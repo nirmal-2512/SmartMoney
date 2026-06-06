@@ -17,10 +17,12 @@ import OtpVerificationPage from "./pages/OtpVerificationPage.jsx";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage.jsx";
 import ResetPasswordPage from "./pages/ResetPasswordPage.jsx";
 import LoansPage from "./pages/LoansPage.jsx";
+import LandingPage from "./pages/LandingPage";
 
 export default function App() {
   return (
     <Routes>
+      <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/verify-otp" element={<OtpVerificationPage />} />
@@ -32,7 +34,7 @@ export default function App() {
           <ProtectedRoute>
             <Layout>
               <Routes>
-                <Route path="/" element={<DashboardPage />} />
+                <Route path="/dashboard" element={<DashboardPage />} />
                 <Route path="/transactions" element={<TransactionsPage />} />
                 <Route path="/categories" element={<CategoriesPage />} />
                 <Route path="/budgets" element={<BudgetsPage />} />

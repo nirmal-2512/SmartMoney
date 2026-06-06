@@ -32,7 +32,7 @@ export default function LoginPage() {
     try {
       const res = await api.post("/auth/login", data);
       setAuth(res.data.user, res.data.accessToken, res.data.refreshToken);
-      navigate("/");
+      navigate("/dashboard");
     } catch (err) {
       setError(err.response?.data?.error?.message || "Login failed");
     } finally {

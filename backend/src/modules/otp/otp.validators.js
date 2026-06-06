@@ -7,7 +7,7 @@ export const sendOtpSchema = Joi.object({
 });
 
 export const verifyEmailOtpSchema = Joi.object({
-  userId: Joi.string().uuid().required(),
+  email: Joi.string().email().required(),  // changed from userId to email
   otp: Joi.string().length(6).pattern(/^\d+$/).required(),
 });
 
