@@ -52,7 +52,7 @@ export default function AiReportPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">
+          <h1 className="text-2xl font-bold text-gray-200">
             AI Monthly Report
           </h1>
           <p className="text-gray-500 text-sm mt-1">

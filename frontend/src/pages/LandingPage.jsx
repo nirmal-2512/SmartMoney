@@ -185,21 +185,47 @@ export default function LandingPage() {
         >
           <div
             style={{
-              width: 36,
-              height: 36,
+              width: 34,
+              height: 34,
               background: "linear-gradient(135deg, #00C896, #4F8EF7)",
-              borderRadius: 10,
+              borderRadius: 120,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               fontWeight: 800,
               fontSize: 16,
               color: "#fff",
+              flexShrink: 0,
             }}
           >
-            S
+            <img
+              src="./../src/img/smartMoney_logo_purple.png"
+              alt="SM"
+              style={{
+                width: 34,
+                height: 34,
+                background: "linear-gradient(135deg, #00C896, #4F8EF7)",
+                borderRadius: 10,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: 800,
+                fontSize: 16,
+                color: "#fff",
+                flexShrink: 0,
+              }}
+            />
           </div>
-          <span style={{ fontSize: 18, fontWeight: 700, color: "#F0F0F5" }}>
+          <span
+            style={{
+              fontWeight: 700,
+              fontSize: 18,
+              background: "linear-gradient(135deg, #00C896, #4F8EF7)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
             SmartMoney
           </span>
         </Link>

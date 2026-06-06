@@ -66,7 +66,7 @@ export default function AiChatPage() {
     <div className="flex flex-col h-[calc(100vh-8rem)]">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">
+          <h1 className="text-2xl font-bold text-gray-200">
             AI Financial Advisor
           </h1>
           <p className="text-gray-500 text-sm mt-1">Powered by Google Gemini</p>

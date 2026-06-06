@@ -230,7 +230,7 @@ export default function CategoriesPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Categories</h1>
+          <h1 className="text-2xl font-bold text-gray-200">Categories</h1>
           <p className="text-gray-500 text-sm mt-1">
             {categories?.length || 0} categories total
           </p>

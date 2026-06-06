@@ -100,7 +100,7 @@ export default function DashboardPage() {
   }));
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 bg-[#10101d]">
       {/* Header */}
       <div>
         <h1 className="text-2xl font-bold" style={{ color: "#F0F0F5" }}>

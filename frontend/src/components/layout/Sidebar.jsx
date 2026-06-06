@@ -64,7 +64,7 @@ export default function Sidebar({ open, onClose }) {
                 width: 34,
                 height: 34,
                 background: "linear-gradient(135deg, #00C896, #4F8EF7)",
-                borderRadius: 10,
+                borderRadius: 120,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -74,7 +74,23 @@ export default function Sidebar({ open, onClose }) {
                 flexShrink: 0,
               }}
             >
-              S
+              <img
+                src="./../src/img/smartMoney_logo_purple.png"
+                alt="SM"
+                style={{
+                  width: 34,
+                  height: 34,
+                  background: "linear-gradient(135deg, #00C896, #4F8EF7)",
+                  borderRadius: 10,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontWeight: 800,
+                  fontSize: 16,
+                  color: "#fff",
+                  flexShrink: 0,
+                }}
+              />
             </div>
             <span
               style={{

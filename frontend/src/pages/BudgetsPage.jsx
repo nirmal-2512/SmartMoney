@@ -211,7 +211,7 @@ export default function BudgetsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Budgets</h1>
+          <h1 className="text-2xl font-bold text-gray-200">Budgets</h1>
           <p className="text-gray-500 text-sm mt-1">
             {budgets?.length || 0} active budgets
           </p>

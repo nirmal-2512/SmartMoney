@@ -47,13 +47,21 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center bg-[#10101d] justify-center p-4">
       <div className="w-full max-w-md">
         <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
-            <span className="text-white font-bold text-lg">S</span>
-          </div>
-          <span className="text-2xl font-bold text-gray-900">SmartMoney</span>
+          <span
+            style={{
+              fontWeight: 700,
+              fontSize: 32,
+              background: "linear-gradient(135deg, #00C896, #4F8EF7)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            SmartMoney
+          </span>
         </div>
 
         <Card className="shadow-lg border-0">
