@@ -241,7 +241,7 @@ export default function LandingPage() {
           <Link to="/login" className="sm-btn-outline sm">
             Sign in
           </Link>
-          <Link to="/login" className="sm-btn-primary sm">
+          <Link to="/register" className="sm-btn-primary sm">
             Get started free
           </Link>
         </div>
@@ -330,7 +330,7 @@ export default function LandingPage() {
             flexWrap: "wrap",
           }}
         >
-          <Link to="/login" className="sm-btn-primary">
+          <Link to="/register" className="sm-btn-primary">
             Start for free &rarr;
           </Link>
           <a href="#features" className="sm-btn-outline">
@@ -845,7 +845,7 @@ export default function LandingPage() {
           Join thousands who have transformed their relationship with money.
         </p>
 
-        <div
+        {/* <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))",
@@ -854,16 +854,16 @@ export default function LandingPage() {
         >
           {[
             [
-              "AR",
+              "MS",
               "linear-gradient(135deg,#00C896,#4F8EF7)",
-              "Arjun Rao",
+              "Mahaveer",
               "Software Engineer, Bangalore",
               "Finally an app that actually understands Indian banking. The CSV import + AI categorisation saved me 3 hours every month.",
             ],
             [
-              "PS",
+              "PD",
               "linear-gradient(135deg,#8B5CF6,#EC4899)",
-              "Priya Sharma",
+              "Priti Das",
               "Product Manager, Mumbai",
               "The AI chat feature is like having a personal CA on call. It noticed I was spending 40% more on food than last month before I even realized.",
             ],
@@ -920,7 +920,7 @@ export default function LandingPage() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </section>
 
       {/* CTA */}
@@ -972,7 +972,7 @@ export default function LandingPage() {
           >
             Free forever. No credit card required. Set up in under 2 minutes.
           </p>
-          <Link to="/login" className="sm-btn-primary">
+          <Link to="/register" className="sm-btn-primary">
             Create free account &rarr;
           </Link>
         </div>
@@ -1004,19 +1004,36 @@ export default function LandingPage() {
         >
           <div
             style={{
-              width: 28,
-              height: 28,
-              background: "linear-gradient(135deg,#00C896,#4F8EF7)",
-              borderRadius: 8,
+              width: 34,
+              height: 34,
+              background: "linear-gradient(135deg, #00C896, #4F8EF7)",
+              borderRadius: 120,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: 12,
               fontWeight: 800,
+              fontSize: 16,
               color: "#fff",
+              flexShrink: 0,
             }}
           >
-            S
+            <img
+              src="./../src/img/smartMoney_logo_purple.png"
+              alt="SM"
+              style={{
+                width: 34,
+                height: 34,
+                background: "linear-gradient(135deg, #00C896, #4F8EF7)",
+                borderRadius: 10,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: 800,
+                fontSize: 16,
+                color: "#fff",
+                flexShrink: 0,
+              }}
+            />
           </div>
           <span style={{ fontSize: 14, fontWeight: 700, color: "#F0F0F5" }}>
             SmartMoney
@@ -1032,7 +1049,7 @@ export default function LandingPage() {
           <Link to="/login" className="sm-footer-link">
             Sign in
           </Link>
-          <Link to="/login" className="sm-footer-link">
+          <Link to="/register" className="sm-footer-link">
             Get started
           </Link>
         </div>
