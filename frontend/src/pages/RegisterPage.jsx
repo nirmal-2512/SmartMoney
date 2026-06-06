@@ -17,7 +17,6 @@ import api from "@/lib/axios";
 export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const { setAuth } = useAuthStore();
   const navigate = useNavigate();
 
   const {
@@ -31,22 +30,14 @@ export default function RegisterPage() {
     setLoading(true);
     setError("");
     try {
-      const res = await api.post("/auth/register", {
+      await api.post("/auth/register", {
         fullName: data.fullName,
         email: data.email,
         password: data.password,
       });
-      setAuth(res.data.user, res.data.accessToken, res.data.refreshToken);
-
-      try {
-        await api.post("/categories/seed");
-      } catch {}
 
       navigate("/verify-otp", {
-        state: {
-          userId: res.data.user.id,
-          email: data.email,
-        },
+        state: { email: data.email }, // only email needed now, no userId
       });
     } catch (err) {
       setError(err.response?.data?.error?.message || "Registration failed");

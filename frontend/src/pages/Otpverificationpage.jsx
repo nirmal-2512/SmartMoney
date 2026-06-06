@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import api from "@/lib/axios";
 import { useToast } from "@/components/hooks/use-toast";
+import { useAuthStore } from "@/store/authStore";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -16,26 +17,29 @@ export default function OtpVerificationPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const { toast } = useToast();
+  const { setAuth } = useAuthStore();
 
-  const { userId, email } = location.state || {};
+  const { email } = location.state || {};
 
   const [digits, setDigits] = useState(Array(6).fill(""));
   const inputRefs = useRef([]);
 
   useEffect(() => {
-    if (!userId || !email) {
+    if (!email) {
       navigate("/register");
     }
-  }, [userId, email, navigate]);
+  }, [email, navigate]);
 
   const otp = digits.join("");
 
   const verifyMutation = useMutation({
     mutationFn: (data) => api.post("/auth/verify-otp", data),
-    onSuccess: () => {
+    onSuccess: (res) => {
+      setAuth(res.data.user, res.data.accessToken, res.data.refreshToken);
+      api.post("/categories/seed").catch(() => {});
       toast({
         title: "Email verified",
-        description: "Your account is now active.",
+        description: "Welcome to SmartMoney!",
       });
       navigate("/dashboard");
     },
@@ -49,8 +53,7 @@ export default function OtpVerificationPage() {
   });
 
   const resendMutation = useMutation({
-    mutationFn: () =>
-      api.post("/auth/send-otp", { userId, email, type: "email_verification" }),
+    mutationFn: () => api.post("/auth/forgot-password", { email }),
     onSuccess: () => {
       toast({
         title: "OTP resent",
@@ -93,7 +96,7 @@ export default function OtpVerificationPage() {
   function handleSubmit(e) {
     e.preventDefault();
     if (otp.length !== 6) return;
-    verifyMutation.mutate({ userId, otp });
+    verifyMutation.mutate({ email, otp });
   }
 
   return (

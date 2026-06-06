@@ -23,6 +23,9 @@ export default function App() {
     <Routes>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/verify-otp" element={<OtpVerificationPage />} />
+      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+      <Route path="/reset-password" element={<ResetPasswordPage />} />
       <Route
         path="/*"
         element={
@@ -39,13 +42,7 @@ export default function App() {
                 <Route path="/ai/report" element={<AiReportPage />} />
                 <Route path="/anomalies" element={<AnomaliesPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
-                <Route path="/verify-otp" element={<OtpVerificationPage />} />
                 <Route path="/loans" element={<LoansPage />} />
-                <Route
-                  path="/forgot-password"
-                  element={<ForgotPasswordPage />}
-                />
-                <Route path="/reset-password" element={<ResetPasswordPage />} />
               </Routes>
             </Layout>
           </ProtectedRoute>
