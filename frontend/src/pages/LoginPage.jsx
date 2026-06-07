@@ -130,7 +130,7 @@ export default function LoginPage() {
                 variant="outline"
                 className="w-full"
                 onClick={() =>
-                  (window.location.href = "http://localhost:3000/auth/google")
+                  (window.location.href = `${import.meta.env.VITE_API_URL || "http://localhost:3000"}/auth/google`)
                 }
               >
                 <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24">
