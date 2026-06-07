@@ -212,7 +212,7 @@ export default function ImportsPage() {
                     <div className="flex items-center gap-3">
                       <FileText className="w-8 h-8 text-gray-400" />
                       <div>
-                        <p className="text-sm font-medium text-gray-900">
+                        <p className="text-sm font-medium text-gray-100">
                           {imp.fileName}
                         </p>
                         <p className="text-xs text-gray-500">

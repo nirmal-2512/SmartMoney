@@ -302,11 +302,11 @@ export default function TransactionsPage() {
               </p>
             </div>
           ) : (
-            <div className="divide-y divide-gray-100">
+            <div className="divide-y divide-gray-100 text-white">
               {transactions.map((t) => (
                 <div
                   key={t.id}
-                  className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors"
+                  className="flex items-center justify-between px-4 py-3 hover:bg-gray-900 transition-colors text-white"
                 >
                   <div className="flex items-center gap-3 min-w-0">
                     <div
@@ -318,7 +318,7 @@ export default function TransactionsPage() {
                       {t.title.charAt(0).toUpperCase()}
                     </div>
                     <div className="min-w-0">
-                      <p className="text-sm font-medium text-gray-900 truncate">
+                      <p className="text-sm font-medium text-gray-100 truncate">
                         {t.title}
                       </p>
                       <div className="flex items-center gap-2 mt-0.5">
