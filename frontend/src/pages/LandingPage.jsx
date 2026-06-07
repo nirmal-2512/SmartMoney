@@ -187,32 +187,18 @@ export default function LandingPage() {
             style={{
               width: 34,
               height: 34,
-              background: "linear-gradient(135deg, #00C896, #4F8EF7)",
-              borderRadius: 120,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontWeight: 800,
-              fontSize: 16,
-              color: "#fff",
+              borderRadius: 10,
+              overflow: "hidden",
               flexShrink: 0,
             }}
           >
             <img
-              src="./../src/img/smartMoney_logo_purple.png"
+              src="/smartMoney_logo_purple.png"
               alt="SM"
               style={{
                 width: 34,
                 height: 34,
-                background: "linear-gradient(135deg, #00C896, #4F8EF7)",
-                borderRadius: 10,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontWeight: 800,
-                fontSize: 16,
-                color: "#fff",
-                flexShrink: 0,
+                objectFit: "cover",
               }}
             />
           </div>
@@ -1006,32 +992,18 @@ export default function LandingPage() {
             style={{
               width: 34,
               height: 34,
-              background: "linear-gradient(135deg, #00C896, #4F8EF7)",
-              borderRadius: 120,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontWeight: 800,
-              fontSize: 16,
-              color: "#fff",
+              borderRadius: 10,
+              overflow: "hidden",
               flexShrink: 0,
             }}
           >
             <img
-              src="./../src/img/smartMoney_logo_purple.png"
+              src="/smartMoney_logo_purple.png"
               alt="SM"
               style={{
                 width: 34,
                 height: 34,
-                background: "linear-gradient(135deg, #00C896, #4F8EF7)",
-                borderRadius: 10,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontWeight: 800,
-                fontSize: 16,
-                color: "#fff",
-                flexShrink: 0,
+                objectFit: "cover",
               }}
             />
           </div>
