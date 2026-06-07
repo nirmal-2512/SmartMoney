@@ -21,8 +21,6 @@ import loanRoutes from './modules/loans/loans.routes.js';
 import otpRoutes from './modules/otp/otp.routes.js';
 
 
-
-
 const app = express();
 
 app.use(helmet());

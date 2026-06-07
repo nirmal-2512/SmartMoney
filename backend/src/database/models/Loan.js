@@ -9,6 +9,7 @@ const Loan = sequelize.define('Loan', {
   principalAmount: { type: DataTypes.DECIMAL(15, 4), allowNull: false },
   currency: { type: DataTypes.STRING(10), allowNull: false, defaultValue: 'INR' },
   interestRate: { type: DataTypes.DECIMAL(5, 2), allowNull: false, defaultValue: 0 },
+  transactionId: { type: DataTypes.UUID, allowNull: true, defaultValue: null,},
   interestType: { type: DataTypes.ENUM('simple', 'compound'), allowNull: false, defaultValue: 'simple' },
   startDate: { type: DataTypes.DATEONLY, allowNull: false },
   dueDate: { type: DataTypes.DATEONLY, allowNull: true, defaultValue: null },

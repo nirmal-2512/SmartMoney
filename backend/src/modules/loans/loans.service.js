@@ -1,22 +1,27 @@
 import Decimal from 'decimal.js';
 import { Op } from 'sequelize';
-import { Loan } from '../../database/models/index.js';
+import { Loan, Transaction, Category } from '../../database/models/index.js';
 
 export function calculateInterest(loan) {
   const principal = new Decimal(loan.principalAmount);
   const rate = new Decimal(loan.interestRate);
   const startDate = new Date(loan.startDate);
-  const endDate = loan.status === 'settled' && loan.settledAt
-    ? new Date(loan.settledAt) : new Date();
+  const endDate =
+    loan.status === 'settled' && loan.settledAt
+      ? new Date(loan.settledAt)
+      : new Date();
 
-  const daysElapsed = Math.max(0,
-    Math.floor((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24))
+  const msPerDay = 1000 * 60 * 60 * 24;
+  const daysElapsed = Math.max(
+    0,
+    Math.floor((endDate.getTime() - startDate.getTime()) / msPerDay)
   );
   const T = new Decimal(daysElapsed).div(365);
 
-  const interestAccrued = loan.interestType === 'simple'
-    ? principal.mul(rate).mul(T).div(100)
-    : principal.mul(new Decimal(1).plus(rate.div(100)).pow(T)).minus(principal);
+  const interestAccrued =
+    loan.interestType === 'simple'
+      ? principal.mul(rate).mul(T).div(100)
+      : principal.mul(new Decimal(1).plus(rate.div(100)).pow(T)).minus(principal);
 
   return {
     principal: principal.toDecimalPlaces(2).toNumber(),
@@ -33,7 +38,80 @@ function enrich(loan) {
 
 function notFound() {
   const err = new Error('Loan not found');
-  err.status = 404; err.code = 'LOAN_NOT_FOUND'; throw err;
+  err.status = 404;
+  err.code = 'LOAN_NOT_FOUND';
+  throw err;
+}
+
+// Find or create a Loans category for the user
+async function getLoansCategory(userId, type) {
+  const name = type === 'given' ? 'Loan Given' : 'Loan Taken';
+  const transactionType = type === 'given' ? 'expense' : 'income';
+
+  let category = await Category.findOne({
+    where: { userId, name, deletedAt: null },
+  });
+
+  if (!category) {
+    category = await Category.create({
+      userId,
+      name,
+      icon: '🤝',
+      color: type === 'given' ? '#FF6B6B' : '#00C896',
+      type: transactionType,
+      isDefault: false,
+    });
+  }
+
+  return category;
+}
+
+// Create a transaction linked to the loan
+async function createLoanTransaction(userId, loan) {
+  const category = await getLoansCategory(userId, loan.type);
+
+  const transactionType = loan.type === 'given' ? 'expense' : 'income';
+
+  const transaction = await Transaction.create({
+    userId,
+    categoryId: category.id,
+    title: `Loan ${loan.type === 'given' ? 'given to' : 'taken from'} ${loan.personName}`,
+    amount: loan.principalAmount,
+    currency: loan.currency,
+    amountBase: loan.principalAmount,
+    baseCurrency: loan.currency,
+    exchangeRate: 1,
+    rateSource: 'manual',
+    type: transactionType,
+    date: loan.startDate,
+    notes: `Auto-created from loan record. ${loan.notes || ''}`.trim(),
+  });
+
+  return transaction;
+}
+
+// Create a reverse transaction when loan is settled
+async function createSettlementTransaction(userId, loan) {
+  const category = await getLoansCategory(userId, loan.type);
+
+  // Reverse type — if loan was given (expense), settlement is income
+  const transactionType = loan.type === 'given' ? 'income' : 'expense';
+  const { totalOwed } = calculateInterest(loan);
+
+  await Transaction.create({
+    userId,
+    categoryId: category.id,
+    title: `Loan settled — ${loan.personName}`,
+    amount: totalOwed,
+    currency: loan.currency,
+    amountBase: totalOwed,
+    baseCurrency: loan.currency,
+    exchangeRate: 1,
+    rateSource: 'manual',
+    type: transactionType,
+    date: new Date().toISOString().slice(0, 10),
+    notes: `Loan settlement including interest.`,
+  });
 }
 
 export async function listLoans(userId, { type } = {}) {
@@ -45,6 +123,11 @@ export async function listLoans(userId, { type } = {}) {
 
 export async function createLoan(userId, data) {
   const loan = await Loan.create({ userId, ...data });
+
+  // Create linked transaction
+  const transaction = await createLoanTransaction(userId, loan);
+  await loan.update({ transactionId: transaction.id });
+
   return enrich(loan);
 }
 
@@ -58,12 +141,27 @@ export async function updateLoan(userId, loanId, data) {
   const loan = await Loan.findOne({ where: { id: loanId, userId } });
   if (!loan) notFound();
   await loan.update(data);
+
+  // Update the linked transaction amount if principal changed
+  if (data.principalAmount && loan.transactionId) {
+    await Transaction.update(
+      { amount: data.principalAmount, amountBase: data.principalAmount },
+      { where: { id: loan.transactionId } }
+    );
+  }
+
   return enrich(loan);
 }
 
 export async function deleteLoan(userId, loanId) {
   const loan = await Loan.findOne({ where: { id: loanId, userId } });
   if (!loan) notFound();
+
+  // Soft delete linked transaction too
+  if (loan.transactionId) {
+    await Transaction.destroy({ where: { id: loan.transactionId } });
+  }
+
   await loan.destroy();
   return { message: 'Loan deleted' };
 }
@@ -71,10 +169,18 @@ export async function deleteLoan(userId, loanId) {
 export async function settleLoan(userId, loanId) {
   const loan = await Loan.findOne({ where: { id: loanId, userId } });
   if (!loan) notFound();
+
   if (loan.status === 'settled') {
     const err = new Error('Loan is already settled');
-    err.status = 400; err.code = 'LOAN_ALREADY_SETTLED'; throw err;
+    err.status = 400;
+    err.code = 'LOAN_ALREADY_SETTLED';
+    throw err;
   }
+
   await loan.update({ status: 'settled', settledAt: new Date() });
+
+  // Create settlement (reverse) transaction
+  await createSettlementTransaction(userId, loan);
+
   return enrich(loan);
 }
