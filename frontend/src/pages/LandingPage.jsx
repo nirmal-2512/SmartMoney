@@ -221,7 +221,6 @@ export default function LandingPage() {
         >
           <a href="#features">Features</a>
           <a href="#how-it-works">How it works</a>
-          <a href="#testimonials">Reviews</a>
         </div>
         <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
           <Link to="/login" className="sm-btn-outline sm">
@@ -789,7 +788,7 @@ export default function LandingPage() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section
+      {/* <section
         id="testimonials"
         style={{ padding: "6rem 2rem", maxWidth: 1100, margin: "0 auto" }}
       >
@@ -829,9 +828,9 @@ export default function LandingPage() {
           }}
         >
           Join thousands who have transformed their relationship with money.
-        </p>
+        </p> */}
 
-        {/* <div
+      {/* <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))",
@@ -907,7 +906,7 @@ export default function LandingPage() {
             </div>
           ))}
         </div> */}
-      </section>
+      {/* </section> */}
 
       {/* CTA */}
       <section style={{ padding: "6rem 2rem", textAlign: "center" }}>
