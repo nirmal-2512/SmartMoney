@@ -157,13 +157,67 @@ export async function deleteLoan(userId, loanId) {
   const loan = await Loan.findOne({ where: { id: loanId, userId } });
   if (!loan) notFound();
 
-  // Soft delete linked transaction too
+  // Do NOT delete the linked transaction — just unlink it
   if (loan.transactionId) {
-    await Transaction.destroy({ where: { id: loan.transactionId } });
+    await Transaction.update(
+      { notes: 'Loan record deleted, transaction kept for records.' },
+      { where: { id: loan.transactionId } }
+    );
   }
 
   await loan.destroy();
   return { message: 'Loan deleted' };
+}
+
+// Get all unique contacts with net balance
+export async function getContacts(userId) {
+  const loans = await Loan.findAll({ where: { userId } });
+
+  const grouped = {};
+  for (const loan of loans) {
+    const plain = loan.toJSON();
+    const { totalOwed } = calculateInterest(plain);
+
+    if (!grouped[plain.personName]) {
+      grouped[plain.personName] = {
+        personName: plain.personName,
+        netBalance: 0, // positive = they owe you, negative = you owe them
+        entryCount: 0,
+        currency: plain.currency,
+      };
+    }
+
+    grouped[plain.personName].entryCount += 1;
+
+    if (plain.status !== 'settled') {
+      if (plain.type === 'given') {
+        grouped[plain.personName].netBalance += totalOwed;
+      } else {
+        grouped[plain.personName].netBalance -= totalOwed;
+      }
+    }
+  }
+
+  return Object.values(grouped).sort((a, b) => a.personName.localeCompare(b.personName));
+}
+
+// Get all loan entries for one person
+export async function getLoansByPerson(userId, personName) {
+  const loans = await Loan.findAll({
+    where: { userId, personName },
+    order: [['startDate', 'ASC']],
+  });
+
+  let runningBalance = 0;
+  const entries = loans.map((loan) => {
+    const enriched = enrich(loan);
+    if (enriched.status !== 'settled') {
+      runningBalance += enriched.type === 'given' ? enriched.totalOwed : -enriched.totalOwed;
+    }
+    return enriched;
+  });
+
+  return { personName, entries, netBalance: runningBalance };
 }
 
 export async function settleLoan(userId, loanId) {

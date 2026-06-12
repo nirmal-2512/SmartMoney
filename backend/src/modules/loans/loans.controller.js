@@ -41,3 +41,17 @@ export async function settleLoan(req, res, next) {
     res.json({ loan });
   } catch (err) { next(err); }
 }
+
+export async function getContacts(req, res, next) {
+  try {
+    const contacts = await loanService.getContacts(req.user.id);
+    res.json({ contacts });
+  } catch (err) { next(err); }
+}
+
+export async function getLoansByPerson(req, res, next) {
+  try {
+    const data = await loanService.getLoansByPerson(req.user.id, req.params.personName);
+    res.json(data);
+  } catch (err) { next(err); }
+}
