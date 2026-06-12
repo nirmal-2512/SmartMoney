@@ -125,7 +125,7 @@ export default function ReportsPage() {
                   <span className="text-sm text-gray-500">Income</span>
                   <TrendingUp className="w-5 h-5 text-green-500" />
                 </div>
-                <p className="text-2xl font-bold text-gray-900">
+                <p className="text-2xl font-bold text-gray-100">
                   {formatCurrency(current.totalIncome || 0)}
                 </p>
                 <p
@@ -142,7 +142,7 @@ export default function ReportsPage() {
                   <span className="text-sm text-gray-500">Expenses</span>
                   <TrendingDown className="w-5 h-5 text-red-500" />
                 </div>
-                <p className="text-2xl font-bold text-gray-900">
+                <p className="text-2xl font-bold text-gray-100">
                   {formatCurrency(current.totalExpense || 0)}
                 </p>
                 <p
@@ -159,7 +159,7 @@ export default function ReportsPage() {
                   <span className="text-sm text-gray-500">Net Balance</span>
                   <Wallet className="w-5 h-5 text-blue-500" />
                 </div>
-                <p className="text-2xl font-bold text-gray-900">
+                <p className="text-2xl font-bold text-gray-100">
                   {formatCurrency(current.balance || 0)}
                 </p>
                 <p
@@ -276,7 +276,7 @@ export default function ReportsPage() {
                       <span className="font-medium text-gray-700">
                         {c.name}
                       </span>
-                      <span className="text-gray-900 font-semibold">
+                      <span className="text-gray-100 font-semibold">
                         {formatCurrency(c.total)}
                       </span>
                     </div>

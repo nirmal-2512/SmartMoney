@@ -265,7 +265,7 @@ export default function BudgetsPage() {
                         <PiggyBank className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <p className="font-semibold text-gray-900">
+                        <p className="font-semibold text-gray-100">
                           {budget.Category?.name || "Unknown"}
                         </p>
                         <p className="text-xs text-gray-500">
@@ -307,13 +307,13 @@ export default function BudgetsPage() {
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-500">
                       Spent:{" "}
-                      <span className="font-medium text-gray-900">
+                      <span className="font-medium text-gray-200">
                         {formatCurrency(status?.spent || 0, budget.currency)}
                       </span>
                     </span>
                     <span className="text-gray-500">
                       Limit:{" "}
-                      <span className="font-medium text-gray-900">
+                      <span className="font-medium text-gray-200">
                         {formatCurrency(budget.amount, budget.currency)}
                       </span>
                     </span>
