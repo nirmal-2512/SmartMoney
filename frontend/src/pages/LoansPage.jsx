@@ -301,7 +301,7 @@ export default function LoansPage() {
           </p>
         </div>
         <div className="flex flex-col gap-2 flex-shrink-0">
-          <Button variant="outline" onClick={exportPDF} disabled={exporting}>
+          <Button variant="outline" className="bg-[#147bbf]" onClick={exportPDF} disabled={exporting}>
             <Download className="w-4 h-4 mr-2" />
             {exporting ? 'Exporting...' : 'Download PDF'}
           </Button>
