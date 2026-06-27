@@ -26,7 +26,13 @@ const app = express();
 app.use(helmet());
 app.use(morgan('dev'));
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: [
+    process.env.FRONTEND_URL || 'http://localhost:5173',
+    'http://localhost',                    // Capacitor default
+    'https://localhost',                   // Capacitor with https scheme
+    'capacitor://localhost'                // Capacitor iOS default
+  ],
+  
   credentials: true,
 }));
 app.use(express.json());
