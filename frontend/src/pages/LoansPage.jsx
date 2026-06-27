@@ -300,13 +300,15 @@ export default function LoansPage() {
             Loan diary
           </p>
         </div>
-        <Button variant="outline" onClick={exportPDF} disabled={exporting}>
-          <Download className="w-4 h-4 mr-2" />
-          {exporting ? 'Exporting...' : 'Download PDF'}
-        </Button>
-        <Button onClick={() => openCreate(selectedPerson)}>
-          <PlusCircle className="mr-2 h-4 w-4" /> Add entry
-        </Button>
+        <div className="flex flex-col gap-2 flex-shrink-0">
+          <Button variant="outline" onClick={exportPDF} disabled={exporting}>
+            <Download className="w-4 h-4 mr-2" />
+            {exporting ? 'Exporting...' : 'Download PDF'}
+          </Button>
+          <Button onClick={() => openCreate(selectedPerson)}>
+            <PlusCircle className="mr-2 h-4 w-4" /> Add entry
+          </Button>
+        </div>
       </div>
 
       {/* Net balance summary */}
