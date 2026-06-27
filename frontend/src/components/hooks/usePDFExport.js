@@ -21,7 +21,13 @@ export function usePDFExport(filename = 'smartmoney-export') {
       });
 
       const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'px',
+        format: [canvas.width, canvas.height], // single page = exact canvas size
+    });
+
+    
 
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
@@ -30,7 +36,7 @@ export function usePDFExport(filename = 'smartmoney-export') {
       let heightLeft = pdfHeight;
       let position = 0;
 
-      pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfHeight);
+          pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
       heightLeft -= pageHeight;
 
       while (heightLeft > 0) {
@@ -40,7 +46,7 @@ export function usePDFExport(filename = 'smartmoney-export') {
         heightLeft -= pageHeight;
       }
 
-      pdf.save(`${filename}.pdf`);
+      pdf.save(`SmartMoney-loans.pdf`);
     } finally {
       setExporting(false);
     }

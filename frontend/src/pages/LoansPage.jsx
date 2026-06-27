@@ -81,7 +81,7 @@ export default function LoansPage() {
   const [deleteId, setDeleteId] = useState(null);
   const [settleId, setSettleId] = useState(null);
   const [form, setForm] = useState(EMPTY_FORM);
-  const { ref, exportPDF, exporting } = usePDFExport('smartmoney-transactions');
+  const { ref, exportPDF, exporting } = usePDFExport('smartmoney-loans');
   const contactsQuery = useQuery({
     queryKey: ["loans-contacts"],
     queryFn: () => api.get("/loans/contacts").then((r) => r.data.contacts),
