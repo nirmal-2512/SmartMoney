@@ -6,6 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
+
+import { usePDFExport } from '@/components/hooks/usePDFExport';
+import { Download } from 'lucide-react';
+
 import {
   Dialog,
   DialogContent,
@@ -77,7 +81,7 @@ export default function LoansPage() {
   const [deleteId, setDeleteId] = useState(null);
   const [settleId, setSettleId] = useState(null);
   const [form, setForm] = useState(EMPTY_FORM);
-
+  const { ref, exportPDF, exporting } = usePDFExport('smartmoney-transactions');
   const contactsQuery = useQuery({
     queryKey: ["loans-contacts"],
     queryFn: () => api.get("/loans/contacts").then((r) => r.data.contacts),
@@ -279,7 +283,7 @@ export default function LoansPage() {
   const netBalance = data?.netBalance || 0;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6" ref={ref}>
       <div className="flex items-center gap-3">
         <Button
           variant="ghost"
@@ -296,6 +300,10 @@ export default function LoansPage() {
             Loan diary
           </p>
         </div>
+        <Button variant="outline" onClick={exportPDF} disabled={exporting}>
+          <Download className="w-4 h-4 mr-2" />
+          {exporting ? 'Exporting...' : 'Download PDF'}
+        </Button>
         <Button onClick={() => openCreate(selectedPerson)}>
           <PlusCircle className="mr-2 h-4 w-4" /> Add entry
         </Button>
