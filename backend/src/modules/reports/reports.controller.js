@@ -19,9 +19,20 @@ export const getMonthlyReport = async (req, res, next) => {
   }
 };
 
+
+
 export const getCategoryBreakdown = async (req, res, next) => {
   try {
     const result = await reportsService.getCategoryBreakdown(req.user.id, req.query);
+    res.status(200).json(result);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const getLifetimeSummary = async (req, res, next) => {
+  try {
+    const result = await reportsService.getLifetimeSummary(req.user.id);
     res.status(200).json(result);
   } catch (err) {
     next(err);

@@ -117,17 +117,18 @@ export default function DashboardPage() {
     queryFn: () => api.get(`/reports/dashboard?from=${from}&to=${to}`).then((r) => r.data),
   });
 
+  const { data: lifetimeData, isLoading: lifetimeLoading } = useQuery({
+    queryKey: ["lifetime-summary"],
+    queryFn: () =>
+      api.get("/reports/lifetime-summary").then((r) => r.data),
+  });
+  
   // all transactions for period breakdown
   const { data: txData, isLoading: txLoading } = useQuery({
     queryKey: ["transactions-all"],
     queryFn: () => api.get("/transactions?limit=500").then((r) => r.data),
   });
 
-  const { data: lifetimeData, isLoading: lifetimeLoading } = useQuery({
-    queryKey: ["lifetime-summary"],
-    queryFn: () =>
-      api.get("/reports/lifetime-summary").then((r) => r.data),
-  });
 
   const allTx = txData?.transactions || [];
   const periodTx = useMemo(() => filterTransactions(allTx, period), [allTx, period]);

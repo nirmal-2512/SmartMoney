@@ -26,7 +26,7 @@ router.use(authenticate);
  *         description: Dashboard data
  */
 router.get('/dashboard', reportsController.getDashboard);
-
+router.get('/lifetime-summary', reportsController.getLifetimeSummary);
 /**
  * @swagger
  * /reports/monthly:
