@@ -123,6 +123,12 @@ export default function DashboardPage() {
     queryFn: () => api.get("/transactions?limit=500").then((r) => r.data),
   });
 
+  const { data: lifetimeData, isLoading: lifetimeLoading } = useQuery({
+    queryKey: ["lifetime-summary"],
+    queryFn: () =>
+      api.get("/reports/lifetime-summary").then((r) => r.data),
+  });
+
   const allTx = txData?.transactions || [];
   const periodTx = useMemo(() => filterTransactions(allTx, period), [allTx, period]);
   const categoryTotals = useMemo(() => buildCategoryTotals(periodTx), [periodTx]);
@@ -133,6 +139,10 @@ export default function DashboardPage() {
   const totals = overallData?.totals || {};
   const recentTransactions = overallData?.recentTransactions || [];
   const budgetStatus = overallData?.budgetStatus || [];
+
+  const lifetimeIncome = lifetimeData?.totalIncome || 0;
+  const lifetimeExpense = lifetimeData?.totalExpense || 0;
+  const lifetimeBalance = lifetimeData?.currentBalance || 0;
 
   const periodLabel = { day: "Today", week: "This week", month: "This month" }[period];
 
@@ -146,6 +156,171 @@ export default function DashboardPage() {
           <p className="text-sm mt-1" style={{ color: "#8888A0" }}>Your complete financial picture</p>
         </div>
       </div>
+
+      {/* ══════════════════════════════════════════
+          LIFETIME SUMMARY
+      ══════════════════════════════════════════ */}
+      <div style={card} className="p-5">
+        <div className="mb-5">
+          <p
+            className="text-xs font-semibold uppercase tracking-widest mb-1"
+            style={{ color: "#10B981" }}
+          >
+            Lifetime
+          </p>
+
+          <h2
+            className="text-base font-bold"
+            style={{ color: "#F0F0F5" }}
+          >
+            Overall Financial Summary
+          </h2>
+
+          <p
+            className="text-sm mt-1"
+            style={{ color: "#8888A0" }}
+          >
+            Total income, expenses and balance across all transactions
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+          {lifetimeLoading ? (
+            <>
+              <Skeleton className="h-24 rounded-xl" />
+              <Skeleton className="h-24 rounded-xl" />
+              <Skeleton className="h-24 rounded-xl" />
+            </>
+          ) : (
+            <>
+              {/* Income */}
+              <div style={innerCard} className="p-4 flex items-center gap-4">
+                <div
+                  style={{
+                    width: 42,
+                    height: 42,
+                    borderRadius: 10,
+                    background: "rgba(0,200,150,0.15)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <TrendingUp
+                    style={{
+                      color: "#00C896",
+                      width: 18,
+                      height: 18,
+                    }}
+                  />
+                </div>
+
+                <div>
+                  <p
+                    className="text-xs"
+                    style={{ color: "#8888A0" }}
+                  >
+                    Total Income
+                  </p>
+
+                  <p
+                    className="text-lg font-bold"
+                    style={{ color: "#00C896" }}
+                  >
+                    {formatCurrency(lifetimeIncome)}
+                  </p>
+                </div>
+              </div>
+
+              {/* Expense */}
+              <div style={innerCard} className="p-4 flex items-center gap-4">
+                <div
+                  style={{
+                    width: 42,
+                    height: 42,
+                    borderRadius: 10,
+                    background: "rgba(255,107,107,0.15)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <TrendingDown
+                    style={{
+                      color: "#FF6B6B",
+                      width: 18,
+                      height: 18,
+                    }}
+                  />
+                </div>
+
+                <div>
+                  <p
+                    className="text-xs"
+                    style={{ color: "#8888A0" }}
+                  >
+                    Total Expense
+                  </p>
+
+                  <p
+                    className="text-lg font-bold"
+                    style={{ color: "#FF6B6B" }}
+                  >
+                    {formatCurrency(lifetimeExpense)}
+                  </p>
+                </div>
+              </div>
+
+              {/* Balance */}
+              <div style={innerCard} className="p-4 flex items-center gap-4">
+                <div
+                  style={{
+                    width: 42,
+                    height: 42,
+                    borderRadius: 10,
+                    background: "rgba(79,142,247,0.15)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Wallet
+                    style={{
+                      color: "#4F8EF7",
+                      width: 18,
+                      height: 18,
+                    }}
+                  />
+                </div>
+
+                <div>
+                  <p
+                    className="text-xs"
+                    style={{ color: "#8888A0" }}
+                  >
+                    Current Balance
+                  </p>
+
+                  <p
+                    className="text-lg font-bold"
+                    style={{
+                      color:
+                        lifetimeBalance >= 0
+                          ? "#4F8EF7"
+                          : "#FF6B6B",
+                    }}
+                  >
+                    {formatCurrency(lifetimeBalance)}
+                  </p>
+                </div>
+              </div>
+            </>
+          )}
+
+        </div>
+      </div>
+
 
       {/* ══════════════════════════════════════════
           SECTION 1 — OVERALL OVERVIEW (date range)

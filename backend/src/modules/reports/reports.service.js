@@ -2,6 +2,22 @@ import { Op, fn, col, literal } from 'sequelize';
 import Decimal from 'decimal.js';
 import { Transaction, Category, Budget } from '../../database/models/index.js';
 
+
+export const getLifetimeSummary = async (userId) => {
+  const transactions = await Transaction.findAll({
+    where: { userId },
+  });
+
+  const totals = calculateTotals(transactions);
+
+  return {
+    totalIncome: totals.totalIncome,
+    totalExpense: totals.totalExpense,
+    currentBalance: totals.balance,
+  };
+};
+
+
 const getCurrentMonthRange = () => {
   const now = new Date();
   const start = new Date(now.getFullYear(), now.getMonth(), 1);
