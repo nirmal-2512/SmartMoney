@@ -2,8 +2,9 @@ import * as reportsService from './reports.service.js';
 
 export const getDashboard = async (req, res, next) => {
   try {
-    const result = await reportsService.getDashboard(req.user.id);
-    res.status(200).json(result);
+    const { from, to } = req.query;
+    const data = await reportsService.getDashboard(req.user.id, { from, to });
+    res.json(data);
   } catch (err) {
     next(err);
   }

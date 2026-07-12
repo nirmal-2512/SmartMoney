@@ -49,9 +49,13 @@ const calculateTotals = (transactions) => {
   };
 };
 
-export const getDashboard = async (userId) => {
-  const { startDate, endDate } = getCurrentMonthRange();
+export const getDashboard = async (userId, { from, to } = {}) => {
+  const { startDate: defaultStart, endDate: defaultEnd } = getCurrentMonthRange();
+  const startDate = from || defaultStart;
+  const endDate = to || defaultEnd;
 
+  // everything else inside the function stays exactly the same
+  // it already uses startDate and endDate variables throughout
   // Current month transactions
   const transactions = await Transaction.findAll({
     where: {
