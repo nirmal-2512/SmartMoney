@@ -132,7 +132,7 @@ router.get(
 );
 
 router.get('/google/failure', (req, res) => {
-  res.status(401).json({ error: { code: 'GOOGLE_AUTH_FAILED', message: 'Google authentication failed' } });
+  res.redirect(`${process.env.FRONTEND_URL}/login?error=google_auth_failed`);
 });
 
 export default router;
