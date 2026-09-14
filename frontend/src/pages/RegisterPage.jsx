@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+
 import {
   Card,
   CardContent,
@@ -11,12 +12,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useAuthStore } from "@/store/authStore";
+
 import api from "@/lib/axios";
 
 export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
   const navigate = useNavigate();
 
   const {
@@ -29,6 +31,7 @@ export default function RegisterPage() {
   const onSubmit = async (data) => {
     setLoading(true);
     setError("");
+
     try {
       await api.post("/auth/register", {
         fullName: data.fullName,
@@ -37,157 +40,252 @@ export default function RegisterPage() {
       });
 
       navigate("/verify-otp", {
-        state: { email: data.email }, // only email needed now, no userId
+        state: { email: data.email },
       });
     } catch (err) {
-      setError(err.response?.data?.error?.message || "Registration failed");
+      setError(
+        err.response?.data?.error?.message ||
+          "Registration failed"
+      );
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center bg-[#10101d] justify-center p-4">
-      <div className="w-full max-w-md">
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <span
-            style={{
-              fontWeight: 700,
-              fontSize: 32,
-              background: "linear-gradient(135deg, #00C896, #4F8EF7)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            SmartMoney
-          </span>
+    <div className="min-h-screen bg-[#10101d] flex items-center justify-center px-4 py-10 relative overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="absolute top-[-180px] left-1/2 -translate-x-1/2 w-[500px] h-[350px] bg-indigo-600/10 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="relative w-full max-w-md">
+        {/* Logo */}
+        <div className="flex justify-center mb-8">
+          <div className="flex items-center gap-3">
+            <img
+              src="/smartMoney_logo_purple.png"
+              alt="SmartMoney"
+              className="w-10 h-10 object-contain"
+              onError={(e) => {
+                e.currentTarget.style.display = "none";
+              }}
+            />
+
+            <span className="text-2xl font-semibold tracking-tight text-white">
+              Smart<span className="text-indigo-400">Money</span>
+            </span>
+          </div>
         </div>
 
-        <Card className="shadow-lg border-0">
-          <CardHeader className="space-y-1 pb-4">
-            <CardTitle className="text-2xl font-bold text-center">
-              Create an account
+        {/* Register Card */}
+        <Card className="bg-[#16161f] border border-white/[0.07] shadow-2xl shadow-black/30 rounded-2xl">
+          <CardHeader className="text-center space-y-2 pb-6">
+            <CardTitle className="text-2xl font-semibold text-white">
+              Create your account
             </CardTitle>
-            <CardDescription className="text-center">
-              Start tracking your finances today
+
+            <CardDescription className="text-gray-400">
+              Start managing your finances with SmartMoney.
             </CardDescription>
           </CardHeader>
+
           <CardContent>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="space-y-5"
+            >
+              {/* Error */}
               {error && (
-                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                <div className="rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-300">
                   {error}
                 </div>
               )}
 
+              {/* Full Name */}
               <div className="space-y-2">
-                <Label htmlFor="fullName">Full Name</Label>
+                <Label
+                  htmlFor="fullName"
+                  className="text-sm text-gray-300"
+                >
+                  Full name
+                </Label>
+
                 <Input
                   id="fullName"
                   placeholder="John Doe"
+                  autoComplete="name"
                   {...register("fullName", {
                     required: "Full name is required",
-                    minLength: { value: 2, message: "Name too short" },
+                    minLength: {
+                      value: 2,
+                      message: "Name is too short",
+                    },
                   })}
-                  className={errors.fullName ? "border-red-500" : ""}
+                  className={`h-11 bg-[#10101d] border-white/[0.09] text-white placeholder:text-gray-600 focus:border-indigo-500 focus:ring-indigo-500/20 ${
+                    errors.fullName
+                      ? "border-red-500/70"
+                      : ""
+                  }`}
                 />
+
                 {errors.fullName && (
-                  <p className="text-red-500 text-xs">
+                  <p className="text-xs text-red-400">
                     {errors.fullName.message}
                   </p>
                 )}
               </div>
 
+              {/* Email */}
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label
+                  htmlFor="email"
+                  className="text-sm text-gray-300"
+                >
+                  Email
+                </Label>
+
                 <Input
                   id="email"
                   type="email"
-                  placeholder="john@gmail.com"
-                  {...register("email", { required: "Email is required" })}
-                  className={errors.email ? "border-red-500" : ""}
+                  placeholder="you@example.com"
+                  autoComplete="email"
+                  {...register("email", {
+                    required: "Email is required",
+                  })}
+                  className={`h-11 bg-[#10101d] border-white/[0.09] text-white placeholder:text-gray-600 focus:border-indigo-500 focus:ring-indigo-500/20 ${
+                    errors.email
+                      ? "border-red-500/70"
+                      : ""
+                  }`}
                 />
+
                 {errors.email && (
-                  <p className="text-red-500 text-xs">{errors.email.message}</p>
+                  <p className="text-xs text-red-400">
+                    {errors.email.message}
+                  </p>
                 )}
               </div>
 
+              {/* Password */}
               <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
+                <Label
+                  htmlFor="password"
+                  className="text-sm text-gray-300"
+                >
+                  Password
+                </Label>
+
                 <Input
                   id="password"
                   type="password"
-                  placeholder="Min 8 characters"
+                  placeholder="Minimum 8 characters"
+                  autoComplete="new-password"
                   {...register("password", {
                     required: "Password is required",
                     minLength: {
                       value: 8,
-                      message: "Password must be at least 8 characters",
+                      message:
+                        "Password must be at least 8 characters",
                     },
                   })}
-                  className={errors.password ? "border-red-500" : ""}
+                  className={`h-11 bg-[#10101d] border-white/[0.09] text-white placeholder:text-gray-600 focus:border-indigo-500 focus:ring-indigo-500/20 ${
+                    errors.password
+                      ? "border-red-500/70"
+                      : ""
+                  }`}
                 />
+
                 {errors.password && (
-                  <p className="text-red-500 text-xs">
+                  <p className="text-xs text-red-400">
                     {errors.password.message}
                   </p>
                 )}
               </div>
 
+              {/* Confirm Password */}
               <div className="space-y-2">
-                <Label htmlFor="confirmPassword">Confirm Password</Label>
+                <Label
+                  htmlFor="confirmPassword"
+                  className="text-sm text-gray-300"
+                >
+                  Confirm password
+                </Label>
+
                 <Input
                   id="confirmPassword"
                   type="password"
                   placeholder="Repeat your password"
+                  autoComplete="new-password"
                   {...register("confirmPassword", {
                     required: "Please confirm your password",
-                    validate: (val) =>
-                      val === watch("password") || "Passwords do not match",
+                    validate: (value) =>
+                      value === watch("password") ||
+                      "Passwords do not match",
                   })}
-                  className={errors.confirmPassword ? "border-red-500" : ""}
+                  className={`h-11 bg-[#10101d] border-white/[0.09] text-white placeholder:text-gray-600 focus:border-indigo-500 focus:ring-indigo-500/20 ${
+                    errors.confirmPassword
+                      ? "border-red-500/70"
+                      : ""
+                  }`}
                 />
+
                 {errors.confirmPassword && (
-                  <p className="text-red-500 text-xs">
+                  <p className="text-xs text-red-400">
                     {errors.confirmPassword.message}
                   </p>
                 )}
               </div>
 
+              {/* Create Account */}
               <Button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700"
                 disabled={loading}
+                className="w-full h-11 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-lg transition-colors"
               >
-                {loading ? "Creating account..." : "Create account"}
+                {loading ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <span className="h-4 w-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+                    Creating account...
+                  </span>
+                ) : (
+                  "Create account"
+                )}
               </Button>
 
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <span className="w-full border-t border-gray-200" />
-                </div>
-                <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-white px-2 text-gray-500">Or</span>
-                </div>
+              {/* Divider */}
+              <div className="relative flex items-center py-1">
+                <div className="flex-1 border-t border-white/[0.07]" />
+
+                <span className="px-3 text-xs text-gray-600 uppercase tracking-wider">
+                  or
+                </span>
+
+                <div className="flex-1 border-t border-white/[0.07]" />
               </div>
 
+              {/* Google */}
               <Button
                 type="button"
                 variant="outline"
-                className="w-full"
+                className="w-full h-11 bg-transparent border-white/[0.09] text-gray-200 hover:bg-white/[0.04] hover:text-white rounded-lg"
                 onClick={() =>
-                  (window.location.href = `${import.meta.env.VITE_API_URL || 'http://localhost:3000'}/auth/google`)
+                  (window.location.href = `${
+                    import.meta.env.VITE_API_URL ||
+                    "http://localhost:3000"
+                  }/auth/google`)
                 }
               >
-                <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24">
+                <svg
+                  className="w-4 h-4 mr-2"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
                   <path
                     fill="#4285F4"
                     d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
                   />
                   <path
                     fill="#34A853"
-                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-7.28-2.66l3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
                   />
                   <path
                     fill="#FBBC05"
@@ -198,21 +296,30 @@ export default function RegisterPage() {
                     d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                   />
                 </svg>
+
                 Continue with Google
               </Button>
             </form>
 
-            <p className="text-center text-sm text-gray-600 mt-6">
-              Already have an account?{" "}
-              <Link
-                to="/login"
-                className="text-blue-600 hover:underline font-medium"
-              >
-                Sign in
-              </Link>
-            </p>
+            {/* Login */}
+            <div className="mt-7 pt-6 border-t border-white/[0.06] text-center">
+              <p className="text-sm text-gray-500">
+                Already have an account?{" "}
+                <Link
+                  to="/login"
+                  className="text-indigo-400 hover:text-indigo-300 font-medium transition-colors"
+                >
+                  Sign in
+                </Link>
+              </p>
+            </div>
           </CardContent>
         </Card>
+
+        {/* Footer */}
+        <p className="text-center text-xs text-gray-600 mt-6">
+          Your finances. One clear picture.
+        </p>
       </div>
     </div>
   );

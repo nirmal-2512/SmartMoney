@@ -1,0 +1,425 @@
+Balance
+Rs.6851.6
+Transaction
+Accounts
+Transaction
+Details
+Summary
+XXXXXXX9059
+Customer
+Welcome Mr. Nirmal Patidar
+As on 31-12-25
+MY INFORMATION
+My Address
+Email ID
+Segment
+Mobile
+Number
+MY HOME BRANCH INFORMATION
+Home Branch
+Branch Email
+ID
+Branch
+Code
+Branch Phone
+Number
+niXXXXXXXXXXXXXXX@gmail.com
+S/O Radheshyam Patidar, gram barkheda lo,ya,Barkheda
+Loya,Mandsaur,MADHYA PRADESH-458880.
+91XXXXXX80
+SILVER
+GAROTH
+30058
+sbi.30058@sbi.co.in
+-9977753750
+PLEASE DO NOT SHARE YOUR ATM, DEBIT/CREDIT CARD NUMBER, PIN AND OTP WITH ANYONE ELSE. BANK NEVER ASKS FOR SUCH INFORMATION.
+My Name
+Mr. Nirmal Patidar
+GHXXXXX85H
+PAN
+KYC Status
+Compliant
+Toll Free
+Number
+1800 11 2211
+1800 1234
+Available Balance
+No. of Accounts
+Currency
+Deposit Accounts
+MY ACCOUNTS
+Secondary
+Primary
+SAVING ACCOUNT
+INR
+1
+0
+6851.63
+Transaction Accounts*
+Total
+INR: Rs. 6851.63
+*Each depositor is insured by the Deposit Insurance and Credit Guarantee Corporation(DICGC) upto the maximum of Rs. 5 Lakh, for both principal and interest amount held by him in the same right and
+same capacity.
+Visit https://sbi.co.in
+Customer Care
+1800 1234
+Customer Care
+customercare@sbi.co.in
+1 of 4
+Number :
+Email:
+Balance
+Rs.6851.6
+Transaction
+Accounts
+Transaction
+Details
+Summary
+XXXXXXX9059
+Customer
+Welcome Mr. Nirmal Patidar
+As on 31-12-25
+TRANSACTION ACCOUNTS
+Holding Status
+Account Number
+Account Status
+Currency
+Current Balance
+Lien/Hold Amount
+MOD** Balance
+Available Balance
+P
+XXXXXXX7425
+OPEN
+INR
+6851.63
+0.00
+0.00
+6851.63
+SAVINGS ACCOUNTS
+** P – Primary Account Holder
+**MOD: Multi Option Deposit
+**S – Secondary Account Holder
+Visit https://sbi.co.in
+Customer Care
+1800 1234
+Customer Care
+customercare@sbi.co.in
+2 of 4
+Number :
+Email:
+Balance
+Rs.6851.6
+Transaction
+Accounts
+Transaction
+Details
+Summary
+XXXXXXX9059
+Customer
+Welcome Mr. Nirmal Patidar
+As on 31-12-25
+TRANSACTION DETAILS
+SAVING ACCOUNT
+XXXXXXX7425
+Nominee Registered
+Yes
+Available Balance
+6851.63
+Multi-Option Deposit Balance
+0.00
+Name of the Account Holder
+Mr. Nirmal Patidar
+S/O Radheshyam Patidar, gram barkheda lo,ya,Barkheda
+Loya,Mandsaur,MADHYA PRADESH-458880.
+Address
+SINGLE
+Mode of Operation
+Branch Name
+GAROTH
+30058
+Branch Code
+MICR Code
+458002502
+SBIN0030058
+IFSC Code
+Date
+Transaction Reference
+Ref.No./Chq.No.
+Credit
+Debit
+Balance
+null
+null
+null
+null
+null
+null
+03-12-25
+UPI/DR/629728094579/VRINDAVA/YESB/paytmqr281/Payme
+-
+-
+30.00
+997.22
+03-12-25
+UPI/DR/557414080018/Ashish G/YESB/paytm.s1mm/Payme
+-
+-
+70.00
+927.22
+03-12-25
+UPI/DR/215506255335/Flipkart/YESB/flipkart.h/UPIPA
+-
+-
+337.00
+590.22
+03-12-25
+UPI/CR/102126903431/NPCI BHIM/HDFC/bhimcashba/BHIM
+-
+5.00
+-
+595.22
+13-12-25
+UPI/DR/084649131377/MAHAVIR /AIRP/mahavirkum/Payme
+-
+-
+19.00
+576.22
+15-12-25
+UPI/CR/950430535953/HARIOM  /SBIN/7471149708/Payme
+-
+8800.00
+-
+9376.22
+16-12-25
+UPI/DR/561794334950/Narendra/YESB/paytm.s1ak/Payme
+-
+-
+225.00
+9151.22
+18-12-25
+UPI/DR/571808053656/Crescere/YESB/trulymadly/Subsc
+-
+-
+1.00
+9150.22
+24-12-25
+UPI/DR/953582934979/Goibibo/YESB/GOIBIBOONL/Paymen
+-
+-
+222.70
+8927.52
+24-12-25
+UPI/DR/232443464567/ZERODHA /HDFC/zerodhabro/Zerod
+-
+-
+1.00
+8926.52
+24-12-25
+UPI/CR/102291506393/ZERODHA /HDFC/zerodhabro/Zerod
+-
+1.00
+-
+8927.52
+25-12-25
+UPI/DR/737838035209/Vodafone/UTIB/VIINAPPMPC/Payme
+-
+-
+192.00
+8735.52
+25-12-25
+UPI/DR/899877712070/slice de/NESF/deposits@s/Payme
+-
+-
+1000.00
+7735.52
+25-12-25
+INTEREST CREDIT
+-
+25.00
+-
+7760.52
+26-12-25
+UPI/CR/533137337229/VARSHA R/SBIN/9910880220/Payme
+-
+50000.00
+-
+57760.52
+26-12-25
+UPI/DR/033457179647/MYJIO/HDFC/myjio.ease/Pay
+-
+-
+39.00
+57721.52
+26-12-25
+UPI/DR/102302920311/ANGEL ON/HDFC/angelone.i/Payin
+-
+-
+300.00
+57421.52
+26-12-25
+UPI/CR/102302922372/NPCI BHIM/HDFC/bhimcashba/BHIM
+-
+2.56
+-
+57424.08
+TRANSACTION OVERVIEW
+Your Opening Balance on 01-12-25:
+1027.22
+Visit https://sbi.co.in
+Customer Care
+1800 1234
+Customer Care
+customercare@sbi.co.in
+3 of 4
+Number :
+Email:
+Balance
+Rs.6851.6
+Transaction
+Accounts
+Transaction
+Details
+Summary
+XXXXXXX9059
+Customer
+Welcome Mr. Nirmal Patidar
+As on 31-12-25
+Date
+Transaction Reference
+Ref.No./Chq.No.
+Credit
+Debit
+Balance
+26-12-25
+UPI/DR/102305468177/ANGEL ON/HDFC/angelone.i/Payin
+-
+-
+100.00
+57324.08
+27-12-25
+UPI/DR/174204126654/BHIM/ICIC/bhimrechar/NO REMARK
+-
+-
+489.00
+56835.08
+27-12-25
+UPI/CR/102310872577/NPCI BHIM/HDFC/bhimcashba/BHIM
+-
+5.00
+-
+56840.08
+27-12-25
+UPI/DR/231621552514/RITIKA S/SBIN/ritikasara/NO RE
+-
+-
+15.00
+56825.08
+29-12-25
+UPI/DR/062527566107/BHAGIRAT/SBIN/bhansu728@/Payme
+-
+-
+130.00
+56695.08
+29-12-25
+UPI/DR/113927345479/Blinkit/YESB/paytm-blin/Blinki
+-
+-
+259.00
+56436.08
+29-12-25
+UPI/DR/182842778187/SBIMOPS/SBIN/sbimops@sb/MOPSUP
+-
+-
+38562.00
+17874.08
+29-12-25
+UPI/CR/102324400211/NPCI BHIM/HDFC/bhimcashba/BHIM
+-
+10.00
+-
+17884.08
+29-12-25
+UPI/DR/183212272622/SBIMOPS/SBIN/sbimops@sb/MOPSUP
+-
+-
+10350.00
+7534.08
+29-12-25
+UPI/CR/102324420012/NPCI BHIM/HDFC/bhimcashba/BHIM
+-
+3.00
+-
+7537.08
+30-12-25
+UPI/DR/154301301138/BIMALA S/YESB/Q547017534/Payme
+-
+-
+20.00
+7517.08
+30-12-25
+UPI/DR/101627654960/Shankar /YESB/paytmqr5jx/NO RE
+-
+-
+30.00
+7487.08
+30-12-25
+UPI/CR/102328170892/NPCI BHIM/HDFC/bhimcashba/BHIM
+-
+3.00
+-
+7490.08
+30-12-25
+UPI/DR/192218218118/VARUN SA/CNRB/varunsniit/NO RE
+-
+-
+20.00
+7470.08
+30-12-25
+UPI/CR/102331755355/NPCI BHIM/HDFC/bhimcashba/BHIM
+-
+2.55
+-
+7472.63
+30-12-25
+UPI/DR/232728894655/SHUBHDEE/SBIN/shubhdeepm/NO RE
+-
+-
+354.00
+7118.63
+30-12-25
+UPI/CR/117714699821/RAJAS MA/SBIN/9975261910/Payme
+-
+700.00
+-
+7818.63
+30-12-25
+UPI/DR/233051332423/Sudip Bi/IDFB/7047510640/NO RE
+-
+-
+708.00
+7110.63
+31-12-25
+UPI/CR/293756806859/KILLI  S/SBIN/6301649289/Payme
+-
+35.00
+-
+7145.63
+31-12-25
+UPI/DR/231256649656/G JAYANT/YESB/Q931964854/NO RE
+-
+-
+294.00
+6851.63
+*All dates are in DD-MM-YY format
+Your Closing Balance on 31-12-25:
+6851.63
+Contents of this statement will be considered correct if no error is reported within 30 days of receipt of the statement.
+Visit https://sbi.co.in
+Customer Care
+1800 1234
+Customer Care
+customercare@sbi.co.in
+4 of 4
+Number :
+Email:

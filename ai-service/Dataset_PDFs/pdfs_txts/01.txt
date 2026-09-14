@@ -1,0 +1,655 @@
+Balance
+Rs.3601.1
+Transaction
+Accounts
+Transaction
+Details
+Summary
+XXXXXXX9059
+Customer
+Welcome Mr. Nirmal Patidar
+As on 30-04-26
+MY INFORMATION
+My Address
+Email ID
+Segment
+Mobile
+Number
+MY HOME BRANCH INFORMATION
+Home Branch
+Branch Email
+ID
+Branch
+Code
+Branch Phone
+Number
+niXXXXXXXXXXXXXXX@gmail.com
+S/O Radheshyam Patidar, gram barkheda lo,ya,Barkheda
+Loya,Mandsaur,MADHYA PRADESH-458880.
+91XXXXXX80
+SILVER
+GAROTH
+30058
+sbi.30058@sbi.co.in
+-8989798720
+PLEASE DO NOT SHARE YOUR ATM, DEBIT/CREDIT CARD NUMBER, PIN AND OTP WITH ANYONE ELSE. BANK NEVER ASKS FOR SUCH INFORMATION.
+My Name
+Mr. Nirmal Patidar
+GHXXXXX85H
+PAN
+KYC Status
+Compliant
+Toll Free
+Number
+1800 11 2211
+1800 1234
+Available Balance
+No. of Accounts
+Currency
+Deposit Accounts
+MY ACCOUNTS
+Secondary
+Primary
+SAVING ACCOUNT
+INR
+1
+0
+3601.18
+Transaction Accounts*
+Total
+INR: Rs. 3601.18
+*Each depositor is insured by the Deposit Insurance and Credit Guarantee Corporation(DICGC) upto the maximum of Rs. 5 Lakh, for both principal and interest amount held by him in the same right and
+same capacity.
+Visit https://sbi.co.in
+Customer Care
+1800 1234
+Customer Care
+customercare@sbi.co.in
+1 of 5
+Number :
+Email:
+Balance
+Rs.3601.1
+Transaction
+Accounts
+Transaction
+Details
+Summary
+XXXXXXX9059
+Customer
+Welcome Mr. Nirmal Patidar
+As on 30-04-26
+TRANSACTION ACCOUNTS
+Holding
+Status
+Mode Of Operation
+Account Number Account Status
+Currency Current Balance
+Lien/Hold Amount
+MOD** Balance
+Available Balance
+P
+SINGLE
+XXXXXXX7425
+OPEN
+INR
+3601.18
+0.00
+0.00
+3601.18
+SAVINGS ACCOUNTS
+** P – Primary Account Holder
+**MOD: Multi Option Deposit
+**S – Secondary Account Holder
+Visit https://sbi.co.in
+Customer Care
+1800 1234
+Customer Care
+customercare@sbi.co.in
+2 of 5
+Number :
+Email:
+Balance
+Rs.3601.1
+Transaction
+Accounts
+Transaction
+Details
+Summary
+XXXXXXX9059
+Customer
+Welcome Mr. Nirmal Patidar
+As on 30-04-26
+TRANSACTION DETAILS
+SAVING ACCOUNT
+XXXXXXX7425
+Nominee Registered
+Yes
+Available Balance
+3601.18
+Multi-Option Deposit Balance
+0.00
+Name of the Account Holder
+Mr. Nirmal Patidar
+S/O Radheshyam Patidar, gram barkheda lo,ya,Barkheda
+Loya,Mandsaur,MADHYA PRADESH-458880.
+Address
+SINGLE
+Mode of Operation
+Branch Name
+GAROTH
+30058
+Branch Code
+MICR Code
+458002502
+SBIN0030058
+IFSC Code
+Date
+Transaction Reference
+Ref.No./Chq.No.
+Credit
+Debit
+Balance
+null
+null
+null
+null
+null
+null
+02-04-26
+UPI/DR/304236257027/NIPENDRA/YESB/Q059783548/Payme
+-
+0
+92.00
+2614.47
+02-04-26
+UPI/DR/020350727968/BIMALA S/YESB/Q547017534/Payme
+-
+0
+64.00
+2550.47
+02-04-26
+UPI/DR/872942970836/LABA KAN/YESB/Q579147172/Payme
+-
+0
+10.00
+2540.47
+02-04-26
+UPI/CR/609256162606/HARSH  S/SBIN/hsahu6645@/UPI
+-
+140.00
+0
+2680.47
+03-04-26
+UPI/DR/475975182077/TAPRI TE/YESB/paytmqr6dj/Payme
+-
+0
+70.00
+2610.47
+03-04-26
+UPI/DR/847225842624/Mr SAMIR/YESB/Q223511524/Payme
+-
+0
+195.00
+2415.47
+04-04-26
+UPI/CR/609443938388/Sparsh  /SBIN/sparshkand/UPI
+-
+83.00
+0
+2498.47
+04-04-26
+UPI/DR/027876773838/KRISHNA /YESB/Q40173503@/Payme
+-
+0
+80.00
+2418.47
+05-04-26
+UPI/DR/793301906582/Mr SAMIR/YESB/Q765558840/Payme
+-
+0
+50.00
+2368.47
+05-04-26
+UPI/DR/022814097787/Flipkart/UTIB/setu.flipk/UPIPA
+-
+0
+145.00
+2223.47
+05-04-26
+UPI/CR/103051182765/NPCI BHIM/HDFC/bhimcashba/BHIM
+-
+10.00
+0
+2233.47
+05-04-26
+UPI/DR/869667533757/MR TECHN/UTIB/cforcover4/UPIIn
+-
+0
+322.19
+1911.28
+05-04-26
+UPI/DR/654755455966/Dominos /YESB/paytm-5195/Payme
+-
+0
+632.10
+1279.18
+05-04-26
+UPI/DR/442820923332/Mr SAMIR/YESB/Q765558840/Payme
+-
+0
+50.00
+1229.18
+06-04-26
+UPI/DR/119941248474/KRISHNA /YESB/Q40173503@/Payme
+-
+0
+30.00
+1199.18
+06-04-26
+UPI/DR/679712618151/CHANDRA /FDRL/BHARATPE.9/Pay t
+-
+0
+30.00
+1169.18
+06-04-26
+UPI/DR/186706681409/Kallam S/SBIN/7337361141/Payme
+-
+0
+30.00
+1139.18
+TRANSACTION OVERVIEW
+Your Opening Balance on 01-04-26:
+2706.47
+Visit https://sbi.co.in
+Customer Care
+1800 1234
+Customer Care
+customercare@sbi.co.in
+3 of 5
+Number :
+Email:
+Balance
+Rs.3601.1
+Transaction
+Accounts
+Transaction
+Details
+Summary
+XXXXXXX9059
+Customer
+Welcome Mr. Nirmal Patidar
+As on 30-04-26
+Date
+Transaction Reference
+Ref.No./Chq.No.
+Credit
+Debit
+Balance
+07-04-26
+UPI/DR/105208446597/KRISHNA /YESB/Q40173503@/Payme
+-
+0
+20.00
+1119.18
+07-04-26
+UPI/DR/593949950570/SAJAL SH/CNRB/sharmasaja/Payme
+-
+0
+300.00
+819.18
+07-04-26
+UPI/DR/854102163731/Mr SAMIR/YESB/Q223511524/Payme
+-
+0
+50.00
+769.18
+08-04-26
+UPI/DR/631251223454/DHIREM  /SBIN/8918497452/Payme
+-
+0
+300.00
+469.18
+09-04-26
+UPI/DR/760171875390/Mr SONA /YESB/paytmqr6l6/Payme
+-
+0
+35.00
+434.18
+10-04-26
+UPI/DR/687794491251/VENDIFY /UTIB/vendingsof/quotc
+-
+0
+20.00
+414.18
+13-04-26
+UPI/DR/315323504898/MR SUBRA/YESB/Q408818148/Payme
+-
+0
+50.00
+364.18
+13-04-26
+UPI/DR/350533568839/MR SUBRA/YESB/Q408818148/Payme
+-
+0
+35.00
+329.18
+13-04-26
+UPI/DR/525435370766/MR SUBRA/YESB/Q408818148/Payme
+-
+0
+40.00
+289.18
+13-04-26
+UPI/CR/891308611036/Pine Lab/UTIB/poweracces/Flipk
+-
+145.00
+0
+434.18
+13-04-26
+UPI/CR/610364231833/MR Nirma/NESF/9165nks@sl/UPI
+-
+763.00
+0
+1197.18
+13-04-26
+UPI/DR/154963106265/Mr SAMIR/YESB/Q765558840/Payme
+-
+0
+50.00
+1147.18
+13-04-26
+UPI/DR/641385550090/SATYAM  /YESB/Q107738836/Payme
+-
+0
+20.00
+1127.18
+14-04-26
+UPI/DR/867386544631/CHIRANJI/YESB/Q891149564/Payme
+-
+0
+68.00
+1059.18
+14-04-26
+UPI/DR/800150081226/Mr  JAYA/YESB/Q553594414/Payme
+-
+0
+55.00
+1004.18
+15-04-26
+UPI/DR/073668304739/CHIRANJI/YESB/Q891149564/Payme
+-
+0
+30.00
+974.18
+16-04-26
+UPI/DR/657578114030/KRISHNA /YESB/Q40173503@/Payme
+-
+0
+10.00
+964.18
+16-04-26
+UPI/DR/456668380166/Mr SAMIR/YESB/Q223511524/Payme
+-
+0
+50.00
+914.18
+17-04-26
+UPI/DR/865391896999/CHIRANJI/YESB/Q891149564/Payme
+-
+0
+25.00
+889.18
+17-04-26
+UPI/DR/066301174836/KRISHNA /YESB/Q40173503@/Payme
+-
+0
+30.00
+859.18
+17-04-26
+UPI/DR/836870990180/SUBRATA /YESB/Q855064518/Payme
+-
+0
+8.00
+851.18
+18-04-26
+UPI/DR/055380745894/Mr SAMIR/YESB/Q223511524/Payme
+-
+0
+50.00
+801.18
+18-04-26
+UPI/DR/149008671240/KRISHNA /YESB/Q40173503@/Payme
+-
+0
+30.00
+771.18
+18-04-26
+UPI/DR/694302258732/Santanu /UTIB/gpay-12200/Payme
+-
+0
+20.00
+751.18
+19-04-26
+UPI/DR/279742432313/DHIREM  /SBIN/8918497452/Payme
+-
+0
+300.00
+451.18
+19-04-26
+UPI/DR/498786260620/WAHAB  S/YESB/Q826133143/Payme
+-
+0
+40.00
+411.18
+20-04-26
+UPI/DR/343494107065/KRISHNA /YESB/Q40173503@/Payme
+-
+0
+95.00
+316.18
+20-04-26
+UPI/DR/377660422796/CHIRANJI/YESB/Q891149564/Payme
+-
+0
+30.00
+286.18
+21-04-26
+UPI/DR/502263312058/Mr SAMIR/YESB/Q223511524/Payme
+-
+0
+50.00
+236.18
+21-04-26
+UPI/CR/611112109474/MR Nirma/NESF/9165nks@sl/Payme
+-
+4028.00
+0
+4264.18
+21-04-26
+UPI/DR/247575498653/PHYSICSW/YESB/paytm-6288/Payme
+-
+0
+2500.00
+1764.18
+21-04-26
+UPI/DR/586723526178/KRISHNA /YESB/Q40173503@/Payme
+-
+0
+41.00
+1723.18
+21-04-26
+UPI/DR/032682925564/Mr SAMIR/YESB/Q223511524/Payme
+-
+0
+50.00
+1673.18
+22-04-26
+UPI/DR/583262563563/CHIRANJI/YESB/Q401313978/Payme
+-
+0
+40.00
+1633.18
+24-04-26
+UPI/DR/924742103399/VODAFONE/HSBC/viprevf@hs/Payme
+-
+0
+579.00
+1054.18
+Visit https://sbi.co.in
+Customer Care
+1800 1234
+Customer Care
+customercare@sbi.co.in
+4 of 5
+Number :
+Email:
+Balance
+Rs.3601.1
+Transaction
+Accounts
+Transaction
+Details
+Summary
+XXXXXXX9059
+Customer
+Welcome Mr. Nirmal Patidar
+As on 30-04-26
+Date
+Transaction Reference
+Ref.No./Chq.No.
+Credit
+Debit
+Balance
+24-04-26
+UPI/DR/701318223272/KRISHNA /YESB/Q40173503@/Payme
+-
+0
+50.00
+1004.18
+25-04-26
+UPI/DR/848117088697/Mr SAMIR/YESB/Q223511524/Payme
+-
+0
+50.00
+954.18
+25-04-26
+UPI/DR/172431886404/Mr SAMIR/YESB/Q223511524/Payme
+-
+0
+50.00
+904.18
+25-04-26
+UPI/DR/633929744760/KRISHNA /YESB/Q40173503@/Payme
+-
+0
+30.00
+874.18
+25-04-26
+UPI/DR/902460721016/KATHI JU/YESB/Q799433175/Payme
+-
+0
+50.00
+824.18
+25-04-26
+UPI/DR/807734693058/MR GANES/YESB/Q241733447/Payme
+-
+0
+234.00
+590.18
+26-04-26
+UPI/DR/611623935192/VARUN SA/CNRB/varunsniit/GT
+-
+0
+281.00
+309.18
+27-04-26
+UPI/DR/603521171724/JIO/KKBK/reliancere/Pay
+-
+0
+198.00
+111.18
+27-04-26
+UPI/DR/114348271788/KRISHNA /YESB/Q40173503@/Payme
+-
+0
+80.00
+31.18
+28-04-26
+UPI/DR/808181722477/KRISHNA /YESB/Q40173503@/Payme
+-
+0
+30.00
+1.18
+28-04-26
+UPI/CR/648479580303/Ms PRITI/IDIB/daspriti41/UPI
+-
+1000.00
+0
+1001.18
+29-04-26
+UPI/DR/274818312705/Mr SAMIR/YESB/Q223511524/Payme
+-
+0
+50.00
+951.18
+29-04-26
+UPI/DR/309809480411/KRISHNA /YESB/Q40173503@/Payme
+-
+0
+65.00
+886.18
+29-04-26
+UPI/DR/096360251691/KRISHNA /YESB/Q40173503@/Payme
+-
+0
+160.00
+726.18
+29-04-26
+UPI/DR/729473545084/Mr SAMIR/YESB/Q223511524/Payme
+-
+0
+50.00
+676.18
+30-04-26
+UPI/DR/679080927154/MOHAN RAO/BKID/mohan2014k/Paym
+-
+0
+10.00
+666.18
+30-04-26
+UPI/DR/214097955671/RUBINA  /YESB/BHARATPE09/Payme
+-
+0
+30.00
+636.18
+30-04-26
+UPI/CR/648656131847/Ms PRITI/IDIB/daspriti41/UPI
+-
+500.00
+0
+1136.18
+30-04-26
+UPI/DR/511796819722/SHARDA F/YESB/Q687916335/Payme
+-
+0
+35.00
+1101.18
+30-04-26
+UPI/CR/612037056337/MR Nirma/NESF/9165nks@sl/Payme
+-
+2500.00
+0
+3601.18
+*All dates are in DD-MM-YY format
+Your Closing Balance on 30-04-26:
+3601.18
+Contents of this statement will be considered correct if no error is reported within 30 days of receipt of the statement.
+Visit https://sbi.co.in
+Customer Care
+1800 1234
+Customer Care
+customercare@sbi.co.in
+5 of 5
+Number :
+Email:
