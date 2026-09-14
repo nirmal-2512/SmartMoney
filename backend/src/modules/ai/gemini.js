@@ -1,21 +1,48 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenAI } from '@google/genai';
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const MODEL = 'gemini-3.6-flash';
 
-export const getModel = () => {
-  return genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+const getClient = () => {
+  if (!process.env.GEMINI_API_KEY) {
+    const err = new Error('Gemini configuration is missing. Set GEMINI_API_KEY.');
+    err.status = 500;
+    err.code = 'AI_CONFIG_ERROR';
+    throw err;
+  }
+
+  return new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 };
 
 export const generateContent = async (prompt) => {
-  const model = getModel();
-  const result = await model.generateContent(prompt);
-  return result.response.text();
+  const result = await getClient().models.generateContent({
+    model: MODEL,
+    contents: prompt,
+  });
+
+  if (!result.text) {
+    const err = new Error('Gemini returned an empty response');
+    err.status = 502;
+    err.code = 'AI_EMPTY_RESPONSE';
+    throw err;
+  }
+
+  return result.text;
 };
 
 export const generateJSON = async (prompt) => {
-  const model = getModel();
-  const result = await model.generateContent(prompt);
-  let text = result.response.text();
+  const result = await getClient().models.generateContent({
+    model: MODEL,
+    contents: prompt,
+    config: { responseMimeType: 'application/json' },
+  });
+  let text = result.text;
+
+  if (!text) {
+    const err = new Error('Gemini returned an empty response');
+    err.status = 502;
+    err.code = 'AI_EMPTY_RESPONSE';
+    throw err;
+  }
 
   text = text.replace(/```json/g, '').replace(/```/g, '').trim();
 

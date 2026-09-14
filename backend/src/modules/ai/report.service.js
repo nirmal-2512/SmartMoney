@@ -69,7 +69,7 @@ Keep it friendly, specific and under 300 words.
     userId,
     month: startDate,
     narrative: narrative.trim(),
-    modelUsed: 'gemini-2.0-flash',
+    modelUsed: 'gemini-3.6-flash',
     generatedAt: new Date(),
   });
 
