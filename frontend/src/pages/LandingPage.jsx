@@ -3001,7 +3001,9 @@ export default function LandingPage() {
               >
                 <div className="sm-qr-glass">
                   <img
-                    src="public/Android-App-link-QR.png"
+                    src={`https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(
+                      ANDROID_DOWNLOAD_URL
+                    )}`}
                     alt="QR code to download SmartMoney Android app"
                   />
                 </div>
